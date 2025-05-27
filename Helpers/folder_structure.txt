@@ -1,0 +1,11 @@
+INRE-AI-DOCK/
+├── Back/
+│   └── DATABASE_MODELS.md
+├── Front/
+├── Helpers/
+│   ├── assistant_prompt.md
+│   ├── backlog.md
+│   ├── folder_structure.txt
+│   └── project_details.md
+├── LICENSE
+└── README.md
