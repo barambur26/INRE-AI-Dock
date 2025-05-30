@@ -1,0 +1,2 @@
+Requirement already satisfied: sqlalchemy in ./venv/lib/python3.13/site-packages (2.0.41)
+Requirement already satisfied: typing-extensions>=4.6.0 in ./venv/lib/python3.13/site-packages (from sqlalchemy) (4.13.2)

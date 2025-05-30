@@ -1,0 +1,50 @@
+# AI Dock App - Backend Dependencies (Updated for JWT Auth + Security Enhancements)
+
+# FastAPI Core (Python 3.13 Compatible)
+fastapi>=0.108.0
+uvicorn[standard]>=0.24.0
+
+# Database (Python 3.13 Compatible)
+sqlalchemy>=2.0.25
+alembic>=1.13.0
+psycopg2-binary>=2.9.9
+asyncpg>=0.29.0
+
+# Authentication & Security (JWT AUTHENTICATION UTILITIES)
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+bcrypt==4.1.2
+
+# Rate Limiting & Security Middleware
+slowapi==0.1.9
+limits==3.6.0
+
+# Environment & Configuration
+python-dotenv>=1.0.0
+pydantic>=2.8.0
+pydantic-settings>=2.4.0
+
+# HTTP Client for LLM APIs
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Background Tasks & Caching
+celery==5.3.4
+redis==5.0.1
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Development & Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-mock>=3.12.0
+factory-boy>=3.3.0
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Monitoring & Logging
+structlog==23.2.0
