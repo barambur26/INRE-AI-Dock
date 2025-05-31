@@ -2,6 +2,18 @@
 AI Dock App - FastAPI Main Application with Security Enhancements
 """
 
+import sys
+import os
+from pathlib import Path
+
+# Add parent directory to Python path for direct execution
+# This allows 'python app/main.py' to work by ensuring the 'app' module can be found
+if __name__ == "__main__":
+    # Get the Back directory (parent of app directory)
+    back_dir = Path(__file__).parent.parent
+    if str(back_dir) not in sys.path:
+        sys.path.insert(0, str(back_dir))
+
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
@@ -12,7 +24,6 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import uvicorn
 from datetime import datetime
-import os
 import logging
 
 # Import API routers
@@ -169,7 +180,7 @@ async def clear_rate_limits_endpoint(ip: str = None):
         }
     except Exception as e:
         logger.error(f"Error clearing rate limits: {e}")
-        raise HTTPException(status_code=500, detail="Failed to clear rate limits")
+        raise HTTPException(status_code=500, detail="Failed to clear rate limit statistics")
 
 # Health check endpoint
 @app.get("/health", tags=["System"])
@@ -255,7 +266,7 @@ async def general_exception_handler(request, exc):
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     uvicorn.run(
-        "main:app",
+        "app.main:app",
         host="0.0.0.0",
         port=port,
         reload=True,

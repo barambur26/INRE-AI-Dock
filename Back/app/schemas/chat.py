@@ -89,3 +89,48 @@ class ChatHealthResponse(BaseModel):
     default_model: Optional[str] = Field(None, description="Default model name")
     quota_status: str = Field(..., description="Quota enforcement status")
     timestamp: datetime = Field(default_factory=datetime.utcnow, description="Health check timestamp")
+
+
+# Enhanced Error Response Schemas for AID-US-007
+class QuotaExceededError(BaseModel):
+    """Schema for quota exceeded error responses."""
+    error: str = Field(default="quota_exceeded", description="Error type")
+    message: str = Field(..., description="Human-readable error message")
+    quota_info: Dict[str, Any] = Field(..., description="Detailed quota information")
+    suggested_actions: List[str] = Field(default_factory=list, description="Suggested actions to resolve quota issues")
+    retry_after: Optional[datetime] = Field(None, description="When quota resets (if known)")
+
+
+class QuotaWarningResponse(BaseModel):
+    """Schema for quota warning responses."""
+    warning: str = Field(default="quota_warning", description="Warning type")
+    message: str = Field(..., description="Warning message")
+    quota_info: Dict[str, Any] = Field(..., description="Current quota status")
+    usage_percentage: float = Field(..., description="Current usage percentage")
+    remaining_tokens: int = Field(..., description="Tokens remaining before limit")
+
+
+class QuotaStatusResponse(BaseModel):
+    """Schema for real-time quota status."""
+    quota_id: UUID = Field(..., description="Quota ID")
+    department_name: str = Field(..., description="Department name")
+    llm_model_name: str = Field(..., description="LLM model name")
+    monthly_limit: int = Field(..., description="Monthly token limit")
+    current_usage: int = Field(..., description="Current usage")
+    usage_percentage: float = Field(..., description="Usage percentage")
+    is_exceeded: bool = Field(..., description="Whether quota is exceeded")
+    is_warning: bool = Field(..., description="Whether in warning threshold")
+    remaining_tokens: int = Field(..., description="Remaining tokens")
+    last_updated: datetime = Field(default_factory=datetime.utcnow, description="Last update timestamp")
+
+
+class EnhancedChatErrorResponse(BaseModel):
+    """Enhanced error response schema with quota support."""
+    error: str = Field(..., description="Error type")
+    message: str = Field(..., description="Human-readable error message")
+    error_code: Optional[str] = Field(None, description="Specific error code")
+    details: Optional[Dict[str, Any]] = Field(None, description="Additional error details")
+    quota_info: Optional[Dict[str, Any]] = Field(None, description="Quota information if quota-related error")
+    suggestions: Optional[List[str]] = Field(None, description="Suggested actions to resolve the error")
+    retry_after: Optional[datetime] = Field(None, description="When operation can be retried")
+    timestamp: datetime = Field(default_factory=datetime.utcnow, description="Error timestamp")

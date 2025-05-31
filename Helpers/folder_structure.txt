@@ -1,7 +1,33 @@
 INRE-AI-DOCK/
 ├── Back/
-│   └── DATABASE_MODELS.md
+│   ├── DATABASE_MODELS.md
+│   ├── alembic/
+│   │   └── versions/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── v1/
+│   │   │       └── endpoints/
+│   │   ├── core/
+│   │   │   ├── config.py
+│   │   │   ├── database.py
+│   │   │   └── security.py
+│   │   ├── models/
+│   │   │   └── __init__.py
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   └── utils/
+│   ├── scripts/
+│   └── tests/
 ├── Front/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       │   └── ui/
+│       ├── hooks/
+│       ├── lib/
+│       ├── pages/
+│       ├── services/
+│       └── types/
 ├── Helpers/
 │   ├── assistant_prompt.md
 │   ├── backlog.md

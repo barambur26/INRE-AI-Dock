@@ -14,6 +14,7 @@ from .users import router as users_router
 from .departments import router as departments_router
 from .roles import router as roles_router
 from .llm_configurations import router as llm_configs_router
+from .quotas import router as quotas_router
 
 
 # Main admin router
@@ -24,6 +25,7 @@ router.include_router(users_router)
 router.include_router(departments_router)
 router.include_router(roles_router)
 router.include_router(llm_configs_router)
+router.include_router(quotas_router)
 
 
 @router.get("/stats", response_model=AdminStatsResponse)

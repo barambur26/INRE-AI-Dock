@@ -53,10 +53,15 @@ The AI Dock App backend provides:
    ```
 
 6. **Start the development server:**
+   
+   **Option 1 (Recommended - FastAPI Best Practice):**
+   ```bash
+   uvicorn app.main:app --reload --port 8000
+   ```
+   
+   **Option 2 (Alternative - Direct Python):**
    ```bash
    python app/main.py
-   # OR
-   uvicorn app.main:app --reload --port 8000
    ```
 
 The API will be available at:

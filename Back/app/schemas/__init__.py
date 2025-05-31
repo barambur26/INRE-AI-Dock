@@ -71,6 +71,42 @@ from .chat import (
     ChatHealthResponse,
 )
 
+from .quota import (
+    # Enums
+    QuotaType,
+    QuotaTemplate,
+    QuotaEnforcement,
+    
+    # Base schemas
+    QuotaBase,
+    QuotaCreate,
+    QuotaUpdate,
+    QuotaResponse,
+    QuotaWithDetails,
+    
+    # Bulk operations
+    BulkQuotaCreate,
+    BulkQuotaUpdate,
+    BulkQuotaResponse,
+    
+    # Templates and stats
+    QuotaTemplateSettings,
+    QuotaTemplatesResponse,
+    QuotaUsageStats,
+    QuotaOverviewStats,
+    DepartmentQuotaSummary,
+    
+    # List and filters
+    QuotaListResponse,
+    QuotaFilters,
+    
+    # Alerts and management
+    QuotaAlert,
+    QuotaAlertsResponse,
+    QuotaResetRequest,
+    QuotaResetResponse,
+)
+
 __all__ = [
     # Authentication schemas
     "LoginRequest",
@@ -114,4 +150,28 @@ __all__ = [
     "ChatStatsResponse",
     "UsageQuotaInfo",
     "ChatHealthResponse",
+    
+    # Quota schemas
+    "QuotaType",
+    "QuotaTemplate",
+    "QuotaEnforcement",
+    "QuotaBase",
+    "QuotaCreate",
+    "QuotaUpdate",
+    "QuotaResponse",
+    "QuotaWithDetails",
+    "BulkQuotaCreate",
+    "BulkQuotaUpdate",
+    "BulkQuotaResponse",
+    "QuotaTemplateSettings",
+    "QuotaTemplatesResponse",
+    "QuotaUsageStats",
+    "QuotaOverviewStats",
+    "DepartmentQuotaSummary",
+    "QuotaListResponse",
+    "QuotaFilters",
+    "QuotaAlert",
+    "QuotaAlertsResponse",
+    "QuotaResetRequest",
+    "QuotaResetResponse",
 ]
